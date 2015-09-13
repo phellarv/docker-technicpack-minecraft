@@ -16,31 +16,33 @@ FROM	ubuntu
 # 25565 is for minecraft
 EXPOSE	25565
 
-# /data contains static files
-#VOLUME ["/data"]
-
 # Make sure we don't get notifications we can't answer during building.
 ENV    DEBIAN_FRONTEND noninteractive
 
 # Download and install everything from the repos.
-RUN    apt-get --yes update; apt-get --yes upgrade ; apt-get --yes clean
-RUN    apt-get --yes install curl unzip openjdk-7-jre-headless && apt-get --yes clean
+RUN    apt-get --quiet --yes update && apt-get --quiet --yes upgrade && apt-get --quiet --yes clean
+RUN    apt-get --quiet --yes install curl unzip openjdk-7-jre-headless && apt-get --quiet --yes clean
+
+# create defalt directory
+RUN	mkdir /data
+WORKDIR	/data
 
 # Load in all of our config files.
 ADD	ops.json /data/
 ADD	whitelist.json /data/
 
 # download technicpack
-RUN	curl -s "http://servers.technicpack.net/Technic/servers/bteam/BTeam_Server_v1.0.12a.zip" -o /data/technicpack.zip && cd /data && unzip /data/technicpack.zip && rm /data/technicpack.zip
-RUN	ls -la /data
+RUN	curl -s "http://servers.technicpack.net/Technic/servers/bteam/BTeam_Server_v1.0.12a.zip" -o /data/BTeam_Server_v1.0.12a.zip
+#ADD	BTeam_Server_v1.0.12a.zip /data/BTeam_Server_v1.0.12a.zip
+RUN	unzip BTeam_Server_v1.0.12a.zip && rm BTeam_Server_v1.0.12a.zip
 
 # disable mods
-RUN	mkdir -p /data/mods/disabled
-#RUN	mv /data/mods/morph*.zip /data/mods/disabled/
+RUN	mkdir -p mods/disabled
+#RUN	mv mods/morph*.zip mods/disabled/
 
 # Fix all permissions
-RUN    chmod +x /data/launch.sh
+RUN    chmod +x launch.sh
 
 # /start runs it.
-CMD    ["/data/launch.sh"]
+CMD    ["./launch.sh"]
 
