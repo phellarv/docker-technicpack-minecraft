@@ -41,8 +41,8 @@ RUN	mkdir -p mods/disabled
 #RUN	mv mods/morph*.zip mods/disabled/
 
 # Fix all permissions
-RUN    chmod +x launch.sh
+RUN    chmod +x LaunchServer.sh
 
 # /start runs it.
-CMD    ["./launch.sh"]
+CMD    ["./LaunchServer.sh"]
 
