@@ -32,9 +32,9 @@ ADD	ops.json /data/
 ADD	whitelist.json /data/
 
 # download technicpack
-RUN	curl -s "http://servers.technicpack.net/Technic/servers/bteam/BTeam_Server_v1.0.12a.zip" -o /data/BTeam_Server_v1.0.12a.zip
+RUN	curl -s "http://solder.endermedia.com/repository/downloads/the-1122-pack/the-1122-pack_1.1.1.zip" -o /data/the-1122-pack_1.1.1.zip
 #ADD	BTeam_Server_v1.0.12a.zip /data/BTeam_Server_v1.0.12a.zip
-RUN	unzip BTeam_Server_v1.0.12a.zip && rm BTeam_Server_v1.0.12a.zip
+RUN	unzip the-1122-pack_1.1.1.zip && rm the-1122-pack_1.1.1.zip
 
 # disable mods
 RUN	mkdir -p mods/disabled
