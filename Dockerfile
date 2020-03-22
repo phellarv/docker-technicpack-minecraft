@@ -7,6 +7,7 @@
 # Authors: Carsten Ringe
 # Updated: Sep 13th, 2015
 # Require: Docker (http://www.docker.io/)
+# Picked up and further fixed: Per-Arne Hellarvik
 # -----------------------------------------------------------------------------
 
 
