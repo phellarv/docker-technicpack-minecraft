@@ -30,6 +30,7 @@ WORKDIR	/data
 # Load in all of our config files.
 ADD	ops.json /data/
 ADD	whitelist.json /data/
+ADD eula.txt /data/
 
 # download technicpack
 RUN	curl -s "http://solder.endermedia.com/repository/downloads/the-1122-pack/the-1122-pack_1.1.1.zip" -o /data/the-1122-pack_1.1.1.zip
