@@ -7,6 +7,6 @@ I build this Dockerfile to help start up a minecraft server on *Amazon EC2* or o
 
 # How to run
 
-    sudo docker run --name technicpack -p 25565:25565 phellarv/docker-technicpack-minecraft
+    sudo docker run --name technicpack -p 25565:25565 duckboot/docker-technicpack-minecraft
 
 [0]: https://www.docker.com/
